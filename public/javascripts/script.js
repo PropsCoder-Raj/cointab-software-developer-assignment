@@ -3,11 +3,12 @@
 $(function () {
     $("#fetchUsersButton").on("click", function () {
         console.log("Hello")
+
         $.ajax({
             type: 'GET',
-            url: '/',
+            url: 'http://localhost:3000/users/fetch',
             success: function (result) {
-                $('#champ').html(result);
+                console.log("Result: ", result)
             }
         });
 
