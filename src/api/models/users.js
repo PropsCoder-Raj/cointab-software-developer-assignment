@@ -16,18 +16,24 @@ const User = function(user) {
     this.picture = user.picture;
     this.registered = user.registered;
 }; 
-User.create = (newItems, result) => {
-  const sql = "INSERT INTO user (cell, dob, email, gender, _id, location, login, name, nat, phone, picture, registered) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-  db.run(sql, newItems, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
 
-    getItems();
-    result(null, { status: true, message: "A new item has been craeted." });
-  });
+User.createMultiUser = (newItems, result) => {
+  const sql = "INSERT INTO user (cell, dob, email, gender, _id, location, login, name, nat, phone, picture, registered) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  const stmt  = db.prepare(sql);
+  var bar = new Promise((resolve, reject) => {
+    newItems.forEach(async(ele, index, array) => {
+      stmt.run([ele.cell, ele.dob, ele.email, ele.gender, ele.id, ele.location, ele.login, ele.name, ele.nat, ele.phone, ele.picture, ele.registered]);
+
+      if(index === array.length - 1) resolve()
+    })
+  })
+
+  bar.then(async() => {
+    await stmt.finalize();
+    // getIngredients();
+
+    result(null, { status: true, message: "Create Multiple Users." });
+  })
 };
 
 const initUserTable = () => {
