@@ -10,7 +10,7 @@ exports.fetchUsers = (req, res) => {
 
             if(result){
                 if(result.data.length > 0){
-                    return res.status(200).send({ success: false, message: "Already Fetch Users" })
+                    return res.status(400).send({ success: false, message: "Already Fetch Users" })
                 }else{
                     var config = {
                         method: 'get',
@@ -52,19 +52,31 @@ exports.fetchUsers = (req, res) => {
 
 exports.deleteUsers = (req, res) => {
     try {
-        User.deleteUsers((err, result) => {
+        User.getUsers((err, result) => {
             if(err){
-                return res.status(400).send({
-                    success: false,
-                    message: err.message || "Some error occurred while deleteing the users."
-                });
+                return res.status(400).send(err)
             }
 
-            if (result.status === true) {
-                return res.status(200).send({
-                    success: true,
-                    message: result.message
-                });
+            if(result){
+                if(result.data.length > 0){
+                    User.deleteUsers((err, result) => {
+                        if(err){
+                            return res.status(400).send({
+                                success: false,
+                                message: err.message || "Some error occurred while deleteing the users."
+                            });
+                        }
+            
+                        if (result.status === true) {
+                            return res.status(200).send({
+                                success: true,
+                                message: result.message
+                            });
+                        }
+                    });
+                }else{
+                    return res.status(400).send({ success: false, message: "Users not found." })
+                }
             }
         });
     } catch (error) {
