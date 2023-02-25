@@ -53,3 +53,9 @@ $(function () {
 
     })
 });
+
+$(document).ready(function() {
+    setInterval(() => {
+        $('#dataTables').DataTable();
+    }, 3000);
+});
