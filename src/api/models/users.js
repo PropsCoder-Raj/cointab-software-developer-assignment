@@ -30,11 +30,22 @@ User.createMultiUser = (newItems, result) => {
 
   bar.then(async() => {
     await stmt.finalize();
-    // getIngredients();
 
     result(null, { status: true, message: "Create Multiple Users." });
   })
 };
+
+User.getUsers = (result) => {
+  const sql = `SELECT * FROM user`;
+  db.all(sql, [], (err, users) => {
+    if (err) {
+      console.log("error: ", err);
+      return;
+    }
+
+    result(null, { status: true, message: "Get Users." });
+  });
+}
 
 const initUserTable = () => {
   const sql = `CREATE TABLE IF NOT EXISTS user (

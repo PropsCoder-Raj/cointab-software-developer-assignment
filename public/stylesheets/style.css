@@ -12,7 +12,7 @@ a {
   visibility: hidden; /* Hidden by default. Visible on click */
   min-width: 250px; /* Set a default minimum width */
   margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
+  background: linear-gradient(to right, #5AFF15, #00B712); /* Black background color */
   color: #fff; /* White text color */
   text-align: center; /* Centered text */
   border-radius: 2px; /* Rounded borders */
@@ -27,6 +27,30 @@ a {
 #snackbarSuccess.show {
   visibility: visible; /* Show the snackbarSuccess */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbarSuccess.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbarDanger {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background: linear-gradient(to right, #FF0000, #990000); /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbarDanger */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbarDanger when clicking on a button (class added with JavaScript) */
+#snackbarDanger.show {
+  visibility: visible; /* Show the snackbarDanger */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbarDanger.
   However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
