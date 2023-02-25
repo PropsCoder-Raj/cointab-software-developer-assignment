@@ -31,7 +31,7 @@ User.createMultiUser = (newItems, result) => {
   bar.then(async() => {
     await stmt.finalize();
 
-    result(null, { status: true, message: "Create Multiple Users." });
+    result(null, { status: true, message: "Successfully fetched the users." });
   })
 };
 
@@ -43,7 +43,7 @@ User.getUsers = (result) => {
       return result({ status: false, message: err }, null);;
     }
 
-    result(null, { status: true, message: "Get All Users Successfully.", data: users });
+    result(null, { status: true, message: "Fetch Users Successfully.", data: users });
   });
 }
 

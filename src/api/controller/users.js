@@ -21,17 +21,17 @@ exports.fetchUsers = (req, res) => {
                         .then(function (response) {
                             User.createMultiUser(
                                 response.data.results,
-                                (err, usersData) => {
+                                (err, result) => {
                                     if (err)
                                         return res.status(400).send({
                                             success: false,
-                                            message: err.message || "Some error occurred while creating the Users."
+                                            message: err.message || "Some error occurred while fetching the users."
                                         });
             
-                                    if (usersData.status === true) {
-                                        return res.status(200).json({
+                                    if (result.status === true) {
+                                        return res.status(200).send({
                                             success: true,
-                                            message: "Successfully fetched the users",
+                                            message: result.message,
                                             data: response.data
                                         });
                                     }
@@ -52,16 +52,20 @@ exports.fetchUsers = (req, res) => {
 
 exports.deleteUsers = (req, res) => {
     try {
-        console.log("kjefbjskv")
         User.deleteUsers((err, result) => {
-            
-            console.log("err: ", err)
-            console.log("result: ", result)
             if(err){
-                return res.status(400).send(err)
+                return res.status(400).send({
+                    success: false,
+                    message: err.message || "Some error occurred while deleteing the users."
+                });
             }
-            
-            return res.status(200).json(result)
+
+            if (result.status === true) {
+                return res.status(200).send({
+                    success: true,
+                    message: result.message
+                });
+            }
         });
     } catch (error) {
         throw new Error(error)

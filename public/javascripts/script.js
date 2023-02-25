@@ -37,7 +37,7 @@ $(function () {
             type: 'delete',
             url: 'http://localhost:3000/users/delete',
             success: function (result) {
-                console.log("result: ", result)
+                console.log("result1: ", result)
                 if(result.success === true) {
                     var x = document.getElementById("snackbarSuccess");
                     x.className = "show";
