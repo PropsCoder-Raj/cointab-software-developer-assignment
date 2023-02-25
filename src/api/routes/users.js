@@ -8,5 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/fetch', controller.fetchUsers)
+router.delete('/delete', controller.deleteUsers)
 
 module.exports = router;

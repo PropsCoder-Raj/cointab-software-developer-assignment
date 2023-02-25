@@ -40,10 +40,22 @@ User.getUsers = (result) => {
   db.all(sql, [], (err, users) => {
     if (err) {
       console.log("error: ", err);
-      return;
+      return result({ status: false, message: err }, null);;
     }
 
-    result(null, { status: true, message: "Get Users." });
+    result(null, { status: true, message: "Get All Users Successfully.", data: users });
+  });
+}
+
+User.deleteUsers = (result) => {
+  const sql = `DELETE FROM user`;
+  db.all(sql, [], (err, ingredients) => {
+    if (err) {
+      console.log("error: ", err);
+      return result({ status: false, message: err }, null);
+    }
+
+    result(null, { status: true, message: "Delete users successfully." });
   });
 }
 
