@@ -30,31 +30,31 @@
                             <table id="dataTables" class="table table-striped" style="font-size: small;">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Gender</th>
-                                        <th>Phone</th>
-                                        <th>Age</th>
-                                        <th>City</th>
-                                        <th>State</th>
-                                        <th>Country</th>
-                                        <th>Postal Code</th>
+                                        <th class="align-middle">No</th>
+                                        <th class="align-middle">Name</th>
+                                        <th class="align-middle">Email</th>
+                                        <th class="align-middle">Gender</th>
+                                        <th class="align-middle">Phone</th>
+                                        <th class="align-middle">Age</th>
+                                        <th class="align-middle">City</th>
+                                        <th class="align-middle">State</th>
+                                        <th class="align-middle">Country</th>
+                                        <th class="align-middle">Postal Code</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% for(var i=0; i < userData.length; i++) { %>
                                     <tr>
-                                        <td><%= i+1 %></td>
-                                        <td><%= JSON.parse(userData[i].name).title %>. <%= JSON.parse(userData[i].name).first %> <%= JSON.parse(userData[i].name).last %></td>
-                                        <td><%= userData[i].email %></td>
-                                        <td><%= userData[i].gender %></td>
-                                        <td><%= userData[i].phone %></td>
-                                        <td><%= JSON.parse(userData[i].dob).age %></td>
-                                        <td><%= JSON.parse(userData[i].location).city %></td>
-                                        <td><%= JSON.parse(userData[i].location).state %></td>
-                                        <td><%= JSON.parse(userData[i].location).country %></td>
-                                        <td><%= JSON.parse(userData[i].location).postcode %></td>
+                                        <td class="align-middle"><%= i+1 %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].name).title %>. <%= JSON.parse(userData[i].name).first %> <%= JSON.parse(userData[i].name).last %></td>
+                                        <td class="align-middle"><%= userData[i].email %></td>
+                                        <td class="align-middle"><%= userData[i].gender %></td>
+                                        <td class="align-middle"><%= userData[i].phone %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].dob).age %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].location).city %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].location).state %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].location).country %></td>
+                                        <td class="align-middle"><%= JSON.parse(userData[i].location).postcode %></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
