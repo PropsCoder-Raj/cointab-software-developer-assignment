@@ -22,7 +22,7 @@ User.createMultiUser = (newItems, result) => {
   const stmt  = db.prepare(sql);
   var bar = new Promise((resolve, reject) => {
     newItems.forEach(async(ele, index, array) => {
-      stmt.run([ele.cell, ele.dob, ele.email, ele.gender, ele.id, ele.location, ele.login, ele.name, ele.nat, ele.phone, ele.picture, ele.registered]);
+      stmt.run([ele.cell, JSON.stringify(ele.dob), ele.email, ele.gender, JSON.stringify(ele.id), JSON.stringify(ele.location), JSON.stringify(ele.login), JSON.stringify(ele.name), ele.nat, ele.phone, JSON.stringify(ele.picture), JSON.stringify(ele.registered)]);
 
       if(index === array.length - 1) resolve()
     })

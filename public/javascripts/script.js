@@ -55,7 +55,7 @@ $(function () {
 });
 
 $(document).ready(function() {
-    setInterval(() => {
+    if ($('table').length > 0) {
         $('#dataTables').DataTable();
-    }, 3000);
+    }
 });

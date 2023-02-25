@@ -1,62 +1,60 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Poppins" !important;
+  background: url('https://img.freepik.com/free-vector/white-abstract-background_23-2148806276.jpg') no-repeat;
+  background-size: cover;
 }
 
 a {
   color: #00B7FF;
 }
 
-/* The snackbarSuccess - position it at the bottom and in the middle of the screen */
+
 #snackbarSuccess {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background: linear-gradient(to right, #5AFF15, #00B712); /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbarSuccess */
-  bottom: 30px; /* 30px from the bottom */
+  visibility: hidden; 
+  min-width: 250px; 
+  margin-left: -125px; 
+  background: linear-gradient(to right, #5AFF15, #00B712); 
+  color: #000; 
+  text-align: center; 
+  border-radius: 9px; 
+  padding: 16px; 
+  position: fixed; 
+  z-index: 1; 
+  left: 50%; 
+  bottom: 30px; 
 }
 
-/* Show the snackbarSuccess when clicking on a button (class added with JavaScript) */
+
 #snackbarSuccess.show {
-  visibility: visible; /* Show the snackbarSuccess */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbarSuccess.
-  However, delay the fade out process for 2.5 seconds */
+  visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 #snackbarDanger {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background: linear-gradient(to right, #FF0000, #990000); /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbarDanger */
-  bottom: 30px; /* 30px from the bottom */
+  visibility: hidden; 
+  min-width: 250px; 
+  margin-left: -125px; 
+  background: linear-gradient(to right, #FF0000, #990000); 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 9px; 
+  padding: 16px; 
+  position: fixed; 
+  z-index: 1; 
+  left: 50%; 
+  bottom: 30px; 
 }
 
-/* Show the snackbarDanger when clicking on a button (class added with JavaScript) */
+
 #snackbarDanger.show {
-  visibility: visible; /* Show the snackbarDanger */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbarDanger.
-  However, delay the fade out process for 2.5 seconds */
+  visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-/* Animations to fade the snackbar in and out */
+
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
@@ -75,4 +73,12 @@ a {
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+.center-div{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

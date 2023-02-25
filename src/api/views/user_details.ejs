@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,7 +17,7 @@
 <body>
     <div id="snackbarSuccess"></div>
     <div id="snackbarDanger"></div>
-    <div class="container text-center">
+    <div class="text-center">
         <div class="container-fluid">
             <h1 class="mb-5">
                 <%= title %>
@@ -26,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <table id="dataTables" class="table">
+                            <table id="dataTables" class="table table-striped" style="font-size: small;">
                                 <thead class="table-dark">
                                     <tr>
                                         <th>No</th>
@@ -38,22 +39,22 @@
                                         <th>City</th>
                                         <th>State</th>
                                         <th>Country</th>
-                                        <th>POstal Code</th>
+                                        <th>Postal Code</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% for(var i=0; i < userData.length; i++) { %>
                                     <tr>
                                         <td><%= i+1 %></td>
-                                        <td><% console.log("Hi", JSON.parse(userData[i].name)) %>. <%= userData[i].name.first %> <%= userData[i].name.last %></td>
+                                        <td><%= JSON.parse(userData[i].name).title %>. <%= JSON.parse(userData[i].name).first %> <%= JSON.parse(userData[i].name).last %></td>
                                         <td><%= userData[i].email %></td>
                                         <td><%= userData[i].gender %></td>
                                         <td><%= userData[i].phone %></td>
-                                        <td><%= userData[i].dob.age %></td>
-                                        <td><%= userData[i].location.city %></td>
-                                        <td><%= userData[i].location.state %></td>
-                                        <td><%= userData[i].location.country %></td>
-                                        <td><%= userData[i].location.postCode %></td>
+                                        <td><%= JSON.parse(userData[i].dob).age %></td>
+                                        <td><%= JSON.parse(userData[i].location).city %></td>
+                                        <td><%= JSON.parse(userData[i].location).state %></td>
+                                        <td><%= JSON.parse(userData[i].location).country %></td>
+                                        <td><%= JSON.parse(userData[i].location).postcode %></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
